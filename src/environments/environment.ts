@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://api.openweathermap.org/data/2.5/weather?',
-  apiKey: '3818ce6419dd3623950f0af83272f737',
+  apiUrl: ' http://api.weatherapi.com/v1',
+  apiKey: '635a90fac8b24864bf0124358210908',
 };
 
 /*

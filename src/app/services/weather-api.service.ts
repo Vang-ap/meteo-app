@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
@@ -15,8 +15,13 @@ export class WeatherApiService {
   ) { }
 
   getWeatherCity(): Observable<WeatherCity> {
-    const endpointUrl = `${environment.apiUrl}q=Paris&appid=${environment.apiKey}`;
+    const endpointUrl = `${environment.apiUrl}/current.json`;
+    let params: HttpParams = new HttpParams();
+    params = params.set('key', environment.apiKey);
+    params = params.set('q', 'paris');
+    params = params.set('lang', 'fr');
 
-    return this.httpClient.get<WeatherCity>(endpointUrl);
+    return this.httpClient.get<WeatherCity>(endpointUrl, { params });
   }
+
 }

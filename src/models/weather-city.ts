@@ -1,13 +1,7 @@
-import { Main } from './main';
-import { Weather } from './weather';
+import { Current } from './current';
+import { Location } from './location';
 
 export interface WeatherCity {
-  //id city
-  id: number;
-  //name city
-  name: string;
-  //array weather content description
-  weather: Weather[];
-  // object main content temprerature
-  main: Main;
+  location: Location;
+  current: Current;
 }

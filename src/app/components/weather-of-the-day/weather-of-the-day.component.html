@@ -1,8 +1,9 @@
 <div id="weather-today">
-  <p>Votre météo à CITY</p>
+  <p>Votre météo à {{ weather.location.name }}</p>
 
   <section>
-    <div class="temperature-today">18°C CTITY</div>
-    <div class="description-weather-today">Soleil, nuageux</div>
+    <img [appWeatherIcon]="weather" />
+    <div class="temperature-today">{{ weather.current.temp_c }}°C à {{ weather.location.name }}</div>
+    <div class="description-weather-today">{{ weather.current.condition.text }}</div>
   </section>
 </div>
