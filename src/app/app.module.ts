@@ -7,10 +7,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { WeatherOfTheDayComponent } from './components/weather-of-the-day/weather-of-the-day.component';
+import { WeatherOfTheWeekComponent } from './components/weather-of-the-week/weather-of-the-week.component';
+import { WeatherOfTheWeekItemComponent } from './components/weather-of-the-week-item/weather-of-the-week-item.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WeatherOfTheDayComponent,
+    WeatherOfTheWeekComponent,
+    WeatherOfTheWeekItemComponent
   ],
   imports: [
     BrowserModule,
