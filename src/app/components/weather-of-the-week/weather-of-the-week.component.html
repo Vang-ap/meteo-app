@@ -1,3 +1,5 @@
 <div id="weather-week">
-  <app-weather-of-the-week-item></app-weather-of-the-week-item>
+  <h1>Météo de la semaine</h1>
+  <app-weather-of-the-week-item [weatherDay]="weatherDay" *ngFor="let weatherDay of weatherDays">
+  </app-weather-of-the-week-item>
 </div>

@@ -1,5 +1,6 @@
 <div id="weather-item">
-  <div class="weather-icon">ICON METEO</div>
-  <div class="temperature">20°C</div>
-  <div class="weather-description">Descriptions météo</div>
+  <img [appWeatherIcon]="weatherDay.day.condition" />
+  <div class="temperature">{{ weatherDay.day.maxtemp_c}} °C Température maximum</div>
+  <div class="temperature">{{ weatherDay.day.mintemp_c}} °C Température minimum</div>
+  <div class="weather-description">{{ weatherDay.day.condition.text }}</div>
 </div>
