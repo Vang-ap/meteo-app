@@ -12,6 +12,7 @@ import { WeatherOfTheWeekComponent } from './components/weather-of-the-week/weat
 import { WeatherOfTheWeekItemComponent } from './components/weather-of-the-week-item/weather-of-the-week-item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WeatherIconDirective } from './directives/weather-icon.directive';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { WeatherIconDirective } from './directives/weather-icon.directive';
     WeatherOfTheDayComponent,
     WeatherOfTheWeekComponent,
     WeatherOfTheWeekItemComponent,
-    WeatherIconDirective
+    WeatherIconDirective,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
