@@ -13,6 +13,9 @@ import { WeatherOfTheWeekItemComponent } from './components/weather-of-the-week-
 import { HttpClientModule } from '@angular/common/http';
 import { WeatherIconDirective } from './directives/weather-icon.directive';
 import { HeaderComponent } from './components/header/header.component';
+import { FormsModule } from '@angular/forms';
+import { WeatherComponent } from './components/weather/weather.component';
+import { SearchFormComponent } from './components/search-form/search-form.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,8 @@ import { HeaderComponent } from './components/header/header.component';
     WeatherOfTheWeekItemComponent,
     WeatherIconDirective,
     HeaderComponent,
+    WeatherComponent,
+    SearchFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +35,7 @@ import { HeaderComponent } from './components/header/header.component';
     MatInputModule,
     MatButtonModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

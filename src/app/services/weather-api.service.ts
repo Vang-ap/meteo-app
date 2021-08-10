@@ -12,16 +12,21 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class WeatherApiService {
+  private cityName = '';
 
   constructor(
     private httpClient: HttpClient,
   ) { }
 
+  setCityName(cityName: string) {
+    this.cityName = cityName;
+  }
+
   getWeatherCity(): Observable<WeatherCity> {
     const endpointUrl = `${environment.apiUrl}/current.json`;
     let params: HttpParams = new HttpParams();
     params = params.set('key', environment.apiKey);
-    params = params.set('q', 'paris');
+    params = params.set('q', this.cityName);
     params = params.set('lang', 'fr');
 
     return this.httpClient.get<WeatherCity>(endpointUrl, { params });
@@ -31,7 +36,7 @@ export class WeatherApiService {
     const endpointUrl = `${environment.apiUrl}/forecast.json`;
     let params: HttpParams = new HttpParams();
     params = params.set('key', environment.apiKey);
-    params = params.set('q', 'paris');
+    params = params.set('q', this.cityName);
     params = params.set('days', '3');
     params = params.set('lang', 'fr');
 

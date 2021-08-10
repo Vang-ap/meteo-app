@@ -1,0 +1,14 @@
+<div id="search">
+  <form class="search-form">
+    <div class="content-input">
+      <mat-form-field class="content-input-search" appearance="fill">
+        <mat-label>Enter une ville</mat-label>
+        <input matInput placeholder="Ex. Paris" [(ngModel)]="cityName" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+    </div>
+
+    <div class="button-valided-search">
+      <button (click)="getWeatherByCity()" mat-raised-button color="primary">OK</button>
+    </div>
+  </form>
+</div>

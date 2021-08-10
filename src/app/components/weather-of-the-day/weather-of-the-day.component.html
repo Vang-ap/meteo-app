@@ -3,7 +3,9 @@
 
   <section>
     <img [appWeatherIcon]="weather.current.condition" />
-    <div class="temperature-today">{{ weather.current.temp_c }}°C à {{ weather.location.name }}</div>
-    <div class="description-weather-today">{{ weather.current.condition.text }}</div>
+    <div class="content-weather-today">
+      <div class="temperature-today">{{ weather.current.temp_c }}°C à {{ weather.location.name }}</div>
+      <div class="description-weather-today">{{ weather.current.condition.text }}</div>
+    </div>
   </section>
 </div>

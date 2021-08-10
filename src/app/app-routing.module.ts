@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { SearchFormComponent } from './components/search-form/search-form.component';
+import { WeatherComponent } from './components/weather/weather.component';
+
 
 const routes: Routes = [
   {
     path: '',
-    component: AppComponent
+    component: SearchFormComponent
+  },
+  {
+    path: 'weather/:cityName',
+    component: WeatherComponent
   },
 ];
 
