@@ -16,6 +16,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { WeatherComponent } from './components/weather/weather.component';
 import { SearchFormComponent } from './components/search-form/search-form.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
     MatButtonModule,
     HttpClientModule,
     FormsModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,11 @@
 .content-button-replay {
   display: flex;
   flex-direction: row-reverse;
+  justify-content: center;
+  padding: 0.8rem 0;
+}
+.component-weather-today {
+  display: flex;
+  justify-content: center;
+  padding: 0.9rem 0;
 }

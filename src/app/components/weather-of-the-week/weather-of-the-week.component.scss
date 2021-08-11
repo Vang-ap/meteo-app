@@ -1,0 +1,13 @@
+#weather-week {
+  h1 {
+    text-align: center;
+    color: #3a4caa;
+    font-size: 2rem;
+  }
+
+  section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}

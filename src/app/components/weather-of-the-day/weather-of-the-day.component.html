@@ -1,11 +1,14 @@
 <div id="weather-today">
-  <h1>Votre météo à {{ weather.location.name }}</h1>
+  <div class="title-weather-today">
+    <h1>Votre météo</h1>
+    <h2>{{ weather.location.name }}</h2>
+  </div>
 
   <section>
     <img [appWeatherIcon]="weather.current.condition" />
     <div class="content-weather-today">
-      <div class="temperature-today">{{ weather.current.temp_c }}°C à {{ weather.location.name }}</div>
       <div class="description-weather-today">{{ weather.current.condition.text }}</div>
+      <div class="temperature-today">{{ weather.current.temp_c }}°C à {{ weather.location.name }}</div>
     </div>
   </section>
 </div>

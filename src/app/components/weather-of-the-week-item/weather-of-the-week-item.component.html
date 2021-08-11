@@ -1,6 +1,10 @@
 <div id="weather-item">
-  <img [appWeatherIcon]="weatherDay.day.condition" />
-  <div class="temperature">{{ weatherDay.day.maxtemp_c}} °C Température maximum</div>
-  <div class="temperature">{{ weatherDay.day.mintemp_c}} °C Température minimum</div>
-  <div class="weather-description">{{ weatherDay.day.condition.text }}</div>
+  <mat-card class="weather-card">
+    <img mat-card-image [appWeatherIcon]="weatherDay.day.condition" />
+    <mat-card-content>
+      <div class="weather-description">{{ weatherDay.day.condition.text }}</div>
+      <div class="temperature">{{ weatherDay.day.maxtemp_c}} °C Température max</div>
+      <div class="temperature">{{ weatherDay.day.mintemp_c}} °C Température min</div>
+    </mat-card-content>
+  </mat-card>
 </div>

@@ -1,4 +1,8 @@
 #search {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+
   .search-form {
     display: flex;
     flex-direction: column;
