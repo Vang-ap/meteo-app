@@ -23,25 +23,18 @@ export class WeatherApiService {
   }
 
   getWeatherCity(): Observable<WeatherCity> {
-    const endpointUrl = `${environment.apiUrl}/current.json`;
-    let params: HttpParams = new HttpParams();
-    params = params.set('key', environment.apiKey);
-    params = params.set('q', this.cityName);
-    params = params.set('lang', 'fr');
+    const endpointUrl = `${environment.apiUrl}/today`;
+    const body = { cityName: this.cityName };
 
-    return this.httpClient.get<WeatherCity>(endpointUrl, { params });
+    return this.httpClient.post<WeatherCity>(endpointUrl, body);
   }
 
   getWeatherWeek(): Observable<WeatherDay[]> {
-    const endpointUrl = `${environment.apiUrl}/forecast.json`;
-    let params: HttpParams = new HttpParams();
-    params = params.set('key', environment.apiKey);
-    params = params.set('q', this.cityName);
-    params = params.set('days', '3');
-    params = params.set('lang', 'fr');
+    const endpointUrl = `${environment.apiUrl}/week`;
+    const body = { cityName: this.cityName };
 
     return this.httpClient
-      .get<{ forecast: { forecastday: WeatherDay[] } }>(endpointUrl, { params })
+      .post<{ forecast: { forecastday: WeatherDay[] } }>(endpointUrl, body)
       .pipe(
         map(response => {
           return response.forecast.forecastday;

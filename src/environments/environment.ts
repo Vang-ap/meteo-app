@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: ' http://api.weatherapi.com/v1',
-  apiKey: '635a90fac8b24864bf0124358210908',
+  apiUrl: 'http://localhost:3000/meteo',
 };
 
 /*
