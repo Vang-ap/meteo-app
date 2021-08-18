@@ -1,0 +1,38 @@
+<div class="example-container">
+  <h1>Inscription</h1>
+
+  <form class="inscription-form" [formGroup]="inscriptionFrom" (submit)="submit()">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Prénom</mat-label>
+      <input formControlName="username" matInput placeholder="Roger" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Entrez votre email</mat-label>
+      <input formControlName="email" type="email" matInput placeholder="pat@example.com" required>
+      <mat-error> </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Entrez votre mot de passe</mat-label>
+      <input formControlName="password" matInput required>
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Votre âge</mat-label>
+      <input formControlName="age" matInput placeholder="18" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Entrez votre ville</mat-label>
+      <input formControlName="city" matInput placeholder="Paris" required>
+    </mat-form-field>
+
+    <button [disabled]="!inscriptionFrom.valid" type="submit" mat-button>Valider</button>
+  </form>
+</div>

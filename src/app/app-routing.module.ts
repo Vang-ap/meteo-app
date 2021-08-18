@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SearchFormComponent } from './components/search-form/search-form.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { InscriptionModalComponent } from './components/inscription-modal/inscription-modal.component';
 import { WeatherComponent } from './components/weather/weather.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: SearchFormComponent
+    component: HomePageComponent
   },
+
   {
     path: 'weather/:cityName',
     component: WeatherComponent
