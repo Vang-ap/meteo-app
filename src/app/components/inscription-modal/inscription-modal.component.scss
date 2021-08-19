@@ -1,0 +1,16 @@
+.inscription-Form-Content {
+  .inscription-form {
+    display: flex;
+    flex-direction: column;
+    width: 40rem;
+  }
+
+  .valided-inscription {
+    display: flex;
+    justify-content: center;
+  }
+
+  button {
+    width: 8rem;
+  }
+}

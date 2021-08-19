@@ -1,0 +1,16 @@
+#login-Form-content {
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    width: 40rem;
+  }
+
+  .valided-login {
+    display: flex;
+    justify-content: center;
+  }
+
+  button {
+    width: 8rem;
+  }
+}
