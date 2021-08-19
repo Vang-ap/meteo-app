@@ -13,6 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 
 // import Component
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ import { WeatherComponent } from './components/weather/weather.component';
 import { SearchFormComponent } from './components/search-form/search-form.component';
 import { InscriptionModalComponent } from './components/inscription-modal/inscription-modal.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { LoginModalComponent } from './components/login-modal/login-modal.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
     SearchFormComponent,
     InscriptionModalComponent,
     HomePageComponent,
+    LoginModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +53,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
     MatFormFieldModule,
     MatIconModule,
     ReactiveFormsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

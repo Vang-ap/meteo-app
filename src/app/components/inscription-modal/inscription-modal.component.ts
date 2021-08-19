@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ModalConexionService } from 'src/app/services/modal-conexion.service';
 
 @Component({
   selector: 'app-inscription-modal',
@@ -17,7 +18,8 @@ export class InscriptionModalComponent implements OnInit {
     city: new FormControl('', [Validators.required]),
   });
 
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit(): void {
   }

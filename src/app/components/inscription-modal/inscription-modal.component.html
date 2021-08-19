@@ -1,4 +1,4 @@
-<div class="example-container">
+<mat-dialog-content class="inscription-Form-Content modal">
   <h1>Inscription</h1>
 
   <form class="inscription-form" [formGroup]="inscriptionFrom" (submit)="submit()">
@@ -33,6 +33,6 @@
       <input formControlName="city" matInput placeholder="Paris" required>
     </mat-form-field>
 
-    <button [disabled]="!inscriptionFrom.valid" type="submit" mat-button>Valider</button>
+    <button [disabled]="!inscriptionFrom.valid" type="submit" mat-raised-button color="primary">Valider</button>
   </form>
-</div>
+</mat-dialog-content>
