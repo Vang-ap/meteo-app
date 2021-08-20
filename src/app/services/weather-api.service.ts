@@ -23,14 +23,14 @@ export class WeatherApiService {
   }
 
   getWeatherCity(): Observable<WeatherCity> {
-    const endpointUrl = `${environment.apiUrl}/today`;
+    const endpointUrl = `${environment.apiUrl}/meteo/today`;
     const body = { cityName: this.cityName };
 
     return this.httpClient.post<WeatherCity>(endpointUrl, body);
   }
 
   getWeatherWeek(): Observable<WeatherDay[]> {
-    const endpointUrl = `${environment.apiUrl}/week`;
+    const endpointUrl = `${environment.apiUrl}/meteo/week`;
     const body = { cityName: this.cityName };
 
     return this.httpClient

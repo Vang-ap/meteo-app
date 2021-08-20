@@ -19,19 +19,11 @@ export class HeaderComponent implements OnInit {
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(InscriptionModalComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    this.dialog.open(InscriptionModalComponent);
   }
 
   openModalLogin() {
-    const dialogRef = this.dialog.open(LoginModalComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    this.dialog.open(LoginModalComponent);
   }
 }
 

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { RegisterService } from 'src/app/services/register.service';
+import { Register } from 'src/models/register';
 
 @Component({
   selector: 'app-inscription-modal',
@@ -8,6 +11,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class InscriptionModalComponent implements OnInit {
   hide = true;
+  userInfo!: Register;
 
   inscriptionFrom = new FormGroup({
     username: new FormControl('', [Validators.required]),
@@ -18,13 +22,18 @@ export class InscriptionModalComponent implements OnInit {
   });
 
   constructor(
+    private registerService: RegisterService,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
   }
 
   submit() {
-    console.log(this.inscriptionFrom.value);
+    return this.registerService
+      .sendsUserInfo(this.inscriptionFrom.value)
+      .subscribe(() => {
+        this.dialog.closeAll();
+      });
   }
-
 }
