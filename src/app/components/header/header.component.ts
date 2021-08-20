@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { LoginService } from 'src/app/services/login.service';
 import { InscriptionModalComponent } from '../inscription-modal/inscription-modal.component';
 import { LoginModalComponent } from '../login-modal/login-modal.component';
 
@@ -10,12 +11,19 @@ import { LoginModalComponent } from '../login-modal/login-modal.component';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  userIsLogged = false;
 
   constructor(
-    public dialog: MatDialog,
+    private dialog: MatDialog,
+    private loginService: LoginService,
   ) { }
 
   ngOnInit(): void {
+    this.userIsLogged = this.loginService.isUserLogged();
+
+    this.loginService.userLoggedEvent.subscribe(status => {
+      this.userIsLogged = status;
+    });
   }
 
   openDialog() {
@@ -24,6 +32,10 @@ export class HeaderComponent implements OnInit {
 
   openModalLogin() {
     this.dialog.open(LoginModalComponent);
+  }
+
+  logout() {
+    this.loginService.logout();
   }
 }
 

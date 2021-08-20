@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -9,13 +9,19 @@ import { Login } from 'src/models/login';
   providedIn: 'root'
 })
 export class LoginService {
+  userLoggedEvent = new EventEmitter();
+
   private token!: string;
 
   constructor(
     private httpClient: HttpClient,
   ) {
     const token = localStorage.getItem('token');
-    this.token = token || '';
+
+    if (token) {
+      this.token = token;
+      this.userLoggedEvent.emit(true);
+    }
   }
 
   getToken() {
@@ -36,10 +42,15 @@ export class LoginService {
         map(response => {
           this.token = response.access_token;
           localStorage.setItem('token', this.token);
+          this.userLoggedEvent.emit(true);
 
           return response;
         })
       );
   }
 
+  logout() {
+    localStorage.removeItem('token');
+    this.userLoggedEvent.emit(false);
+  }
 }

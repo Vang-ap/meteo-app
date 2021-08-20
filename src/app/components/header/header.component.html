@@ -4,8 +4,11 @@
   </a>
 
   <div class="menu-identification">
-    <button mat-raised-button color="accent" type="button" class="inscription"
+    <button *ngIf="!userIsLogged" mat-raised-button color="accent" type="button" class="inscription"
       (click)="openDialog()">Incription</button>
-    <button mat-raised-button color="accent" type="button" class="login" (click)="openModalLogin()">Connexion</button>
+    <button *ngIf="!userIsLogged" mat-raised-button color="accent" type="button" class="login"
+      (click)="openModalLogin()">Connexion</button>
+    <button *ngIf="userIsLogged" mat-raised-button color="accent" type="button" class="login"
+      (click)="logout()">Deconnexion</button>
   </div>
 </div>
