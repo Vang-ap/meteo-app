@@ -10,11 +10,11 @@
       et une prévison de trois jours.
     </p>
     <p class="text-description">
-      Il suffit d'enter le nom de la ville souhaité ci-dessous
+      Il suffit de vous inscrire ou vous connectez.
     </p>
   </div>
 
-  <form class="search-form">
+  <form *ngIf="searchFormIsDisplayed" class="search-form">
     <div class="content-input">
       <mat-form-field class="content-input-search" appearance="fill">
         <mat-label>Enter une ville</mat-label>
