@@ -33,7 +33,8 @@
     </mat-form-field>
 
     <div class="valided-inscription">
-      <button [disabled]="!inscriptionFrom.valid" type="submit" mat-raised-button color="primary">Valider</button>
+      <button (click)="toastValidedInscription('Inscription réussit, veuillez vous connecter')"
+        [disabled]="!inscriptionFrom.valid" type="submit" mat-raised-button color="primary">Valider</button>
     </div>
   </form>
 </mat-dialog-content>

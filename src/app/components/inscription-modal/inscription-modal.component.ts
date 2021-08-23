@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { RegisterService } from 'src/app/services/register.service';
 import { Register } from 'src/models/register';
 
@@ -24,6 +25,7 @@ export class InscriptionModalComponent implements OnInit {
   constructor(
     private registerService: RegisterService,
     public dialog: MatDialog,
+    private _snackBar: MatSnackBar,
   ) { }
 
   ngOnInit(): void {
@@ -35,5 +37,14 @@ export class InscriptionModalComponent implements OnInit {
       .subscribe(() => {
         this.dialog.closeAll();
       });
+  }
+
+  toastValidedInscription(message: string) {
+    this._snackBar.open(message);
+    setTimeout(
+      () => {
+        this._snackBar.dismiss();
+      }, 2000
+    );
   }
 }
