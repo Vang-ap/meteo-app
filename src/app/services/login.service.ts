@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -15,6 +16,7 @@ export class LoginService {
 
   constructor(
     private httpClient: HttpClient,
+    private _snackBar: MatSnackBar,
   ) {
     const token = localStorage.getItem('token');
 
@@ -49,8 +51,18 @@ export class LoginService {
       );
   }
 
+  toastMessagelogout(message: string) {
+    this._snackBar.open(message);
+    setTimeout(
+      () => {
+        this._snackBar.dismiss();
+      }, 2000
+    );
+  }
+
   logout() {
     localStorage.removeItem('token');
     this.userLoggedEvent.emit(false);
+    this.toastMessagelogout('Vous êtes déconecté');
   }
 }
