@@ -1,7 +1,7 @@
 <mat-dialog-content class="inscription-Form-Content modal">
   <h1>Inscription</h1>
 
-  <form class="inscription-form" [formGroup]="inscriptionFrom" (submit)="submit()">
+  <form class="inscription-form" [formGroup]="inscriptionForm" (submit)="submit()">
 
     <mat-form-field appearance="fill">
       <mat-label>Prénom</mat-label>
@@ -34,7 +34,7 @@
 
     <div class="valided-inscription">
       <button (click)="toastValidedInscription('Inscription réussit, veuillez vous connecter')"
-        [disabled]="!inscriptionFrom.valid" type="submit" mat-raised-button color="primary">Valider</button>
+        [disabled]="!inscriptionForm.valid" type="submit" mat-raised-button color="primary">Valider</button>
     </div>
   </form>
 </mat-dialog-content>

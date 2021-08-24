@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -10,11 +10,10 @@ import { Register } from 'src/models/register';
   templateUrl: './inscription-modal.component.html',
   styleUrls: ['./inscription-modal.component.scss']
 })
-export class InscriptionModalComponent implements OnInit {
+export class InscriptionModalComponent {
   hide = true;
   userInfo!: Register;
-
-  inscriptionFrom = new FormGroup({
+  inscriptionForm = new FormGroup({
     username: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.email, Validators.required]),
     password: new FormControl('', [Validators.required]),
@@ -28,12 +27,9 @@ export class InscriptionModalComponent implements OnInit {
     private _snackBar: MatSnackBar,
   ) { }
 
-  ngOnInit(): void {
-  }
-
   submit() {
     return this.registerService
-      .sendsUserInfo(this.inscriptionFrom.value)
+      .sendsUserInfo(this.inscriptionForm.value)
       .subscribe(() => {
         this.dialog.closeAll();
       });
