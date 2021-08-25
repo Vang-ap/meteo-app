@@ -2,9 +2,8 @@ import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testin
 import { FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { of } from 'rxjs';
 import { RegisterService } from 'src/app/services/register.service';
-import { Register } from 'src/models/register';
+import { MatDialogMock, MatSnackBarMock, RegisterServiceMock } from 'src/app/tests/mocks';
 
 import { InscriptionModalComponent } from './inscription-modal.component';
 
@@ -12,43 +11,21 @@ describe('InscriptionModalComponent', () => {
   let component: InscriptionModalComponent;
   let fixture: ComponentFixture<InscriptionModalComponent>;
 
-  class mockRegisterService {
-    sendsUserInfo() {
-      return of(null);
-    }
-  }
-
-  class mockMatDialog {
-    closeAll() {
-      return;
-    }
-  }
-
-  class mockMatSnackBar {
-    open(message: string) {
-      return message;
-    }
-
-    dismiss() {
-      return;
-    }
-  }
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [InscriptionModalComponent],
       providers: [
         {
           provide: RegisterService,
-          useClass: mockRegisterService
+          useValue: new RegisterServiceMock()
         },
         {
           provide: MatDialog,
-          useClass: mockMatDialog
+          useValue: new MatDialogMock()
         },
         {
           provide: MatSnackBar,
-          useClass: mockMatSnackBar
+          useValue: new MatSnackBarMock()
         },
       ]
     })
@@ -69,10 +46,10 @@ describe('InscriptionModalComponent', () => {
   });
 
   it('should call registerService and close the dialog after submit the form', () => {
-    const registerService: RegisterService = TestBed.get(RegisterService);
-    spyOn(registerService, 'sendsUserInfo').and.returnValue(of({} as Register));
+    const registerService: RegisterService = TestBed.inject(RegisterService);
+    spyOn(registerService, 'sendsUserInfo').and.callThrough();
 
-    const matDialog: MatDialog = TestBed.get(MatDialog);
+    const matDialog: MatDialog = TestBed.inject(MatDialog);
     spyOn(matDialog, 'closeAll');
 
     component.submit();
@@ -82,8 +59,8 @@ describe('InscriptionModalComponent', () => {
   });
 
   it('should send good informations to registerService', () => {
-    const registerService: RegisterService = TestBed.get(RegisterService);
-    spyOn(registerService, 'sendsUserInfo').and.returnValue(of({} as Register));
+    const registerService: RegisterService = TestBed.inject(RegisterService);
+    spyOn(registerService, 'sendsUserInfo').and.callThrough();
 
     const expectedValues = {
       username: 'test',
@@ -101,7 +78,7 @@ describe('InscriptionModalComponent', () => {
   });
 
   it('should call snackBar at inscription validation', fakeAsync(() => {
-    const snackBar: MatSnackBar = TestBed.get(MatSnackBar);
+    const snackBar: MatSnackBar = TestBed.inject(MatSnackBar);
     const message = 'test';
 
     spyOn(snackBar, 'open');
