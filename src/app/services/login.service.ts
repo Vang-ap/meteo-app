@@ -36,7 +36,6 @@ export class LoginService {
 
   loginOfUser(userInfoLogin: Login): Observable<{ access_token: string }> {
     const endpointUrl = `${environment.apiUrl}/auth/login`;
-    console.log(userInfoLogin);
 
     return this.httpClient
       .post<{ access_token: string }>(endpointUrl, userInfoLogin)
@@ -51,7 +50,7 @@ export class LoginService {
       );
   }
 
-  toastMessagelogout(message: string) {
+  displayMessageAtLogout(message: string) {
     this._snackBar.open(message);
     setTimeout(
       () => {
@@ -63,6 +62,6 @@ export class LoginService {
   logout() {
     localStorage.removeItem('token');
     this.userLoggedEvent.emit(false);
-    this.toastMessagelogout('Vous êtes déconecté');
+    this.displayMessageAtLogout('Vous êtes déconecté');
   }
 }
