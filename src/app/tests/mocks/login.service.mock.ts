@@ -1,6 +1,9 @@
 import { of } from 'rxjs';
+import { EventEmitter } from '@angular/core';
 
 export class LoginServiceMock {
+  userLoggedEvent = new EventEmitter();
+
   getToken() {
     return 'token';
   }
