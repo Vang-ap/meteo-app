@@ -1,5 +1,6 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { environment } from 'src/environments/environment';
 
 import { RegisterService } from './register.service';
 
@@ -28,13 +29,14 @@ describe('RegisterService', () => {
       password: 'test password',
       age: 30,
       city: 'test ville',
-    }
+    };
 
-    spyOn(service, 'sendsUserInfo');
+    service.sendsUserInfo(userInfo).subscribe();
 
-    service.sendsUserInfo(userInfo);
+    const req = httpMock.expectOne(`${environment.apiUrl}/users`);
+    expect(req.request.method).toBe('POST');
+    expect(req.request.body).toBe(userInfo);
 
-    expect(service.sendsUserInfo).toHaveBeenCalledWith(userInfo);
-
+    req.flush({});
   });
 });
