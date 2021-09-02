@@ -17,7 +17,6 @@ export class WeatherOfTheDayComponent implements OnInit {
   ngOnInit(): void {
     this.weatherApiService.getWeatherCity().subscribe((response: WeatherCity) => {
       this.weather = response;
-    })
+    });
   }
-
 }
