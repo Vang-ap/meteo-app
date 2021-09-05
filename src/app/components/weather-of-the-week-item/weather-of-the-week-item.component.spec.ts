@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 
 import { WeatherOfTheWeekItemComponent } from './weather-of-the-week-item.component';
 
-fdescribe('WeatherOfTheWeekItemComponent', () => {
+describe('WeatherOfTheWeekItemComponent', () => {
   let component: WeatherOfTheWeekItemComponent;
   let fixture: ComponentFixture<WeatherOfTheWeekItemComponent>;
 
